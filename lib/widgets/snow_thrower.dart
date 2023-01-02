@@ -130,7 +130,7 @@ class SnowPainter extends CustomPainter {
   );
   final List<Snowflake> snowflakes;
 
-  static double _flakeOpacity = 0.66;
+  static const double _flakeOpacity = 0.66;
   @override
   void paint(Canvas canvas, Size size) {
     Path path = Path();
