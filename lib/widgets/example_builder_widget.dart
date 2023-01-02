@@ -10,8 +10,8 @@ class ExampleBuilderWidget extends StatefulWidget {
 }
 
 class _ExampleBuilderWidgetState extends State<ExampleBuilderWidget> {
-  static get _switchLabelTextStyle => TextStyle(
-        color: Colors.green[100],
+  static get _switchLabelTextStyle => const TextStyle(
+        color: Colors.indigoAccent,
         fontSize: 20.0,
       );
 
@@ -54,6 +54,12 @@ class _ExampleBuilderWidgetState extends State<ExampleBuilderWidget> {
             ),
           ],
         ),
+        const SizedBox(height: 8.0),
+        Divider(
+          height: 4,
+          color: Colors.indigoAccent[100],
+        ),
+        const SizedBox(height: 8.0),
         Row(
           children: [
             Expanded(
@@ -71,6 +77,12 @@ class _ExampleBuilderWidgetState extends State<ExampleBuilderWidget> {
             ),
           ],
         ),
+        const SizedBox(height: 8.0),
+        Divider(
+          height: 4,
+          color: Colors.indigoAccent[100],
+        ),
+        const SizedBox(height: 8.0),
         Row(
           children: [
             Expanded(
@@ -88,6 +100,12 @@ class _ExampleBuilderWidgetState extends State<ExampleBuilderWidget> {
             ),
           ],
         ),
+        const SizedBox(height: 8.0),
+        Divider(
+          height: 4,
+          color: Colors.indigoAccent[100],
+        ),
+        const SizedBox(height: 8.0),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -98,7 +116,7 @@ class _ExampleBuilderWidgetState extends State<ExampleBuilderWidget> {
               ),
             ),
             ConstrainedBox(
-              constraints: BoxConstraints.tightFor(width: 120),
+              constraints: const BoxConstraints.tightFor(width: 120),
               child: Slider(
                 divisions: TextLeadingDistribution.values.length - 1,
                 label: textLeadingDistribution.name,
@@ -114,6 +132,11 @@ class _ExampleBuilderWidgetState extends State<ExampleBuilderWidget> {
               ),
             ),
           ],
+        ),
+        const SizedBox(height: 8.0),
+        Divider(
+          height: 4,
+          color: Colors.indigoAccent[100],
         ),
         const SizedBox(height: 42.0),
         TextExampleWidget(

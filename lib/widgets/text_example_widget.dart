@@ -31,15 +31,15 @@ class TextExampleWidget extends StatelessWidget {
       children: [
         DecoratedBox(
           decoration: BoxDecoration(
-            color: Colors.green[100],
+            color: Colors.indigoAccent[100],
           ),
           child: Text(
             text,
             softWrap: true,
             style: TextStyle(
-              color: Colors.red[900],
+              color: Colors.indigo[900],
               height: height,
-              backgroundColor: Colors.green[300],
+              backgroundColor: Colors.indigo[100],
               fontSize: 32,
             ),
             textAlign: TextAlign.start,

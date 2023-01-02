@@ -15,12 +15,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Font Height Playground',
       theme: ThemeData(
-        primarySwatch: Colors.red,
-        backgroundColor: Colors.green[900],
-        scaffoldBackgroundColor: Colors.green[900],
+        primarySwatch: Colors.indigo,
+        backgroundColor: Colors.white,
+        scaffoldBackgroundColor: Colors.white,
         sliderTheme: SliderThemeData(
           trackHeight: 10,
-          thumbColor: Colors.red[200],
+          thumbColor: Colors.indigo[800],
         ),
       ),
       home: const MyHomePage(
@@ -40,38 +40,52 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // bool showSnow = true;
+  bool isSnowing = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          widget.title,
-          style: TextStyle(
-            color: Colors.green[100],
-            fontWeight: FontWeight.w700,
-            fontSize: 28.0,
-          ),
-        ),
-        centerTitle: true,
-        actions: [
-          // Switch(
-          //   value: showSnow,
-          //   onChanged: (value) => setState(() => showSnow = value),
-          // ),
-        ],
-      ),
       body: Stack(
         children: <Widget>[
-          const Positioned.fill(
-            child: SafeArea(
-              child: ExampleBuilderWidget(),
+          Positioned.fill(
+            top: MediaQuery.of(context).padding.top + kToolbarHeight,
+            child: const ExampleBuilderWidget(),
+          ),
+          Positioned(
+            height: kToolbarHeight,
+            left: 0,
+            right: 0,
+            top: MediaQuery.of(context).padding.top,
+            child: Row(
+              children: [
+                const SizedBox(width: 90),
+                Expanded(
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      widget.title,
+                      style: TextStyle(
+                        color: Colors.blue[900],
+                        fontWeight: FontWeight.w700,
+                        fontSize: 36.0,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 90,
+                  child: Switch(
+                    value: isSnowing,
+                    onChanged: (value) => setState(() => isSnowing = value),
+                  ),
+                ),
+              ],
             ),
           ),
-          // Positioned.fill(
-          //   child: SnowDrawer(showSnow: showSnow),
-          // ),
+          Positioned.fill(
+            child: SnowThrower(isSnowing: isSnowing),
+          ),
         ],
       ),
     );
