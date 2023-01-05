@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TextExampleWidget extends StatelessWidget {
+class TextWidgetBuilder extends StatelessWidget {
   static const text =
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '
       // 'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
@@ -17,7 +17,7 @@ class TextExampleWidget extends StatelessWidget {
   final bool applyHeightToLastDescent;
   final TextLeadingDistribution textLeadingDistribution;
 
-  const TextExampleWidget({
+  const TextWidgetBuilder({
     super.key,
     required this.height,
     required this.applyHeightToFirstAscent,
@@ -27,30 +27,26 @@ class TextExampleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        DecoratedBox(
-          decoration: BoxDecoration(
-            color: Colors.indigoAccent[100],
-          ),
-          child: Text(
-            text,
-            softWrap: true,
-            style: TextStyle(
-              color: Colors.indigo[900],
-              height: height,
-              backgroundColor: Colors.indigo[100],
-              fontSize: 32,
-            ),
-            textAlign: TextAlign.start,
-            textHeightBehavior: TextHeightBehavior(
-              applyHeightToFirstAscent: applyHeightToFirstAscent,
-              applyHeightToLastDescent: applyHeightToLastDescent,
-              leadingDistribution: textLeadingDistribution,
-            ),
-          ),
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: Colors.indigoAccent[100],
+      ),
+      child: Text(
+        text,
+        softWrap: true,
+        style: TextStyle(
+          color: Colors.indigo[900],
+          height: height,
+          backgroundColor: Colors.indigo[100],
+          fontSize: 32,
         ),
-      ],
+        textAlign: TextAlign.start,
+        textHeightBehavior: TextHeightBehavior(
+          applyHeightToFirstAscent: applyHeightToFirstAscent,
+          applyHeightToLastDescent: applyHeightToLastDescent,
+          leadingDistribution: textLeadingDistribution,
+        ),
+      ),
     );
   }
 }

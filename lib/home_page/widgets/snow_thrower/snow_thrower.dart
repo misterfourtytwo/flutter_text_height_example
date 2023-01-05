@@ -147,7 +147,7 @@ class SnowPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..color = Colors.blue[100]!.withOpacity(_flakeOpacity)
       ..strokeCap = StrokeCap.square
-      ..strokeWidth = 3.2;
+      ..strokeWidth = 1.2;
 
     Paint shadowPaint = Paint()
       ..style = PaintingStyle.stroke

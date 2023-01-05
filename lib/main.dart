@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/widgets.dart';
+import 'home_page/home_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+const String title = 'Font Height Playground';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,9 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Font Height Playground',
+      title: title,
+      themeMode: ThemeMode.light,
       theme: ThemeData(
         primarySwatch: Colors.indigo,
+        primaryColorLight: Colors.indigo,
         backgroundColor: Colors.white,
         scaffoldBackgroundColor: Colors.white,
         sliderTheme: SliderThemeData(
@@ -23,70 +27,8 @@ class MyApp extends StatelessWidget {
           thumbColor: Colors.indigo[800],
         ),
       ),
-      home: const MyHomePage(
-        title: 'Font Height Playground',
-      ),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  bool isSnowing = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Positioned.fill(
-            top: MediaQuery.of(context).padding.top + kToolbarHeight,
-            child: const ExampleBuilderWidget(),
-          ),
-          Positioned(
-            height: kToolbarHeight,
-            left: 0,
-            right: 0,
-            top: MediaQuery.of(context).padding.top,
-            child: Row(
-              children: [
-                const SizedBox(width: 90),
-                Expanded(
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Text(
-                      widget.title,
-                      style: TextStyle(
-                        color: Colors.blue[900],
-                        fontWeight: FontWeight.w700,
-                        fontSize: 36.0,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 90,
-                  child: Switch(
-                    value: isSnowing,
-                    onChanged: (value) => setState(() => isSnowing = value),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Positioned.fill(
-            child: SnowThrower(isSnowing: isSnowing),
-          ),
-        ],
+      home: const HomePage(
+        title: title,
       ),
     );
   }

@@ -16,10 +16,9 @@ class Snowflake {
 
   static const double _rotationAngleSeed = 2 * math.pi / 360 * 30.0;
   factory Snowflake.gen(Size size) {
-    int rayCount = rnd.nextInt(9) + 5;
-    double innerRadius = size.width * (0.05 * rnd.nextDouble() + 0.02);
-
-    double outerRadius = size.width * (0.05 * rnd.nextDouble() + 0.02);
+    int rayCount = rnd.nextInt(7) + 5;
+    double innerRadius = 500 * (0.05 * rnd.nextDouble() + 0.02);
+    double outerRadius = 500 * (0.05 * rnd.nextDouble() + 0.02);
     double totalRadius = innerRadius + outerRadius;
 
     Offset spawnPoint = Offset(
